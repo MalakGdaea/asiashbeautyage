@@ -11,7 +11,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-rose-100/60 bg-white/90 backdrop-blur">
       <nav className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link href="#home" className="text-lg font-bold text-rose-600">
-          Asiash Beauty
+          Asiash Beauty Age
         </Link>
 
         <ul className="hidden items-center gap-6 text-sm font-semibold text-zinc-700 md:flex">

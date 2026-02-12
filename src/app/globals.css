@@ -1,19 +1,17 @@
 @import "tailwindcss";
 
-/* 1. Define the actual hex values */
 :root {
-  --background: #FDFBF7;
+  --background: #ffffff;
   --foreground: #3f3f46;
-  --primary: #D67FA3;
-  --hvr: #B55D81;
+  --primary: #e11d48;
+  --primary-hover: #be123c;
 }
 
-/* 2. Map them to Tailwind variables */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
-  --color-hvr: var(--hvr);
+  --color-primary-hover: var(--primary-hover);
 
   --font-sans: var(--font-cairo);
   --font-mono: var(--font-geist-mono);
@@ -43,7 +41,39 @@ body {
 
 @utility btn-luxury {
   @apply rounded-full bg-rose-600 px-6 py-2.5 text-sm font-semibold text-white
-  transition-all duration-300 hover:bg-hvr hover:scale-105
+  transition-all duration-300 hover:bg-primary-hover hover:scale-105
   focus-visible:outline-none focus-visible:ring-2
   focus-visible:ring-primary/70 focus-visible:ring-offset-2;
+}
+
+@keyframes testimonials-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: testimonials-marquee 40s linear infinite;
+  will-change: transform;
+  gap: 0;
+}
+
+.marquee-group {
+  display: flex;
+  gap: 1.25rem;
+  padding-inline-end: 1.25rem;
+  flex-shrink: 0;
+}
+
+.marquee-wrap:hover .marquee-track {
+  animation-play-state: paused !important;
+}
+
+.marquee-wrap:focus-within .marquee-track {
+  animation-play-state: paused !important;
 }
