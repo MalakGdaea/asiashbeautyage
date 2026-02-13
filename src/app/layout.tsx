@@ -9,7 +9,7 @@ const cairo = Cairo({
   variable: "--font-cairo",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://asiashbeautyage.vercel.app";
+const siteUrl =  "https://asiashbeautyage.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
