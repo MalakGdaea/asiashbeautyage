@@ -37,7 +37,7 @@ src/
     Navbar.tsx
     Hero.tsx
     About.tsx
-    BeforeAfter.jsx
+    BeforeAfter.tsx
     Testimonial.tsx
     Services.tsx
     Contact.tsx
