@@ -9,9 +9,15 @@ const cairo = Cairo({
   variable: "--font-cairo",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://asiashbeautyage.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "عناية بالبشرة في رهط | Asiash Beauty Age",
   description: "عيادة تجميل متقدمة في رهط تقدم علاجات البشرة وتنظيف عميق بنتائج واضحة.",
+  verification: {
+    google: "etSAobChg9Ao15PxTmeXiyP1m45hom4cpstq2s42qSY",
+  },
   keywords: [
     "عناية بالبشرة رهط",
     "تنظيف بشرة رهط",

@@ -46,9 +46,20 @@ function LocationIcon() {
   );
 }
 
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 export default function Contact() {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const locationQuery = encodeURIComponent(CONTACT_DETAILS.address);
+  const mapTarget = "Rahat neighborhood 2";
+  const locationQuery = encodeURIComponent(mapTarget);
   const googleMapEmbedSrc = `https://maps.google.com/maps?q=${locationQuery}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
   const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${locationQuery}`;
   const wazeLink = `https://waze.com/ul?q=${locationQuery}&navigate=yes`;
@@ -110,6 +121,18 @@ export default function Contact() {
                 <WhatsAppIcon />
               </span>
               <span className="font-semibold">{"\u062a\u0648\u0627\u0635\u0644\u064a \u0639\u0628\u0631 \u0648\u0627\u062a\u0633\u0627\u0628"}</span>
+            </a>
+
+            <a
+              href={CONTACT_DETAILS.instagram}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-3 text-zinc-800 transition-colors hover:text-zinc-950"
+            >
+              <span className="rounded-full bg-surface-soft p-2 text-zinc-700">
+                <InstagramIcon />
+              </span>
+              <span className="font-semibold">Instagram</span>
             </a>
 
             <p className="flex items-start gap-3 text-zinc-800">

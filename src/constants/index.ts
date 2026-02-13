@@ -1,4 +1,4 @@
-export const navLinks = [
+﻿export const navLinks = [
     { href: "#home", label: "الرئيسية" },
     { href: "#services", label: "الخدمات" },
     { href: "#about", label: "من نحن" },
@@ -142,6 +142,7 @@ export const testimonials: Testimonial[] = [
 export const CONTACT_DETAILS = {
     phone: "052-954-7586",
     whatsapp: "https://wa.me/972529547586",
+    instagram:"https://www.instagram.com/asiashbeautyage/",
     address: "ضاحية ٢ – رهط",
 };
 

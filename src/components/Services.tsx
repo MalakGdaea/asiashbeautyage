@@ -56,7 +56,7 @@ export default function Services() {
                   <span className="rounded-full bg-surface-soft px-3 py-1 text-xs font-semibold text-zinc-700">
                     {service.category}
                   </span>
-                  <span className="rounded-full bg-highlight/60 px-3 py-1 text-xs font-semibold text-zinc-800">
+                  <span dir="ltr" className="rounded-full bg-highlight/60 px-3 py-1 text-xs font-semibold text-zinc-800">
                     {`-${discount}%`}
                   </span>
                 </div>
