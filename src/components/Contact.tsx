@@ -1,12 +1,4 @@
-﻿"use client";
-
-import { useRef } from "react";
-import { CONTACT_DETAILS } from "@/constants";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(ScrollTrigger);
+﻿import { CONTACT_DETAILS } from "@/constants";
 
 function PhoneIcon() {
   return (
@@ -57,36 +49,18 @@ function InstagramIcon() {
 }
 
 export default function Contact() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const mapTarget = "Rahat neighborhood 2";
+  const mapTarget = "שכונה 2, רהט";
   const locationQuery = encodeURIComponent(mapTarget);
+
+  // Added the missing '$' before the braces
   const googleMapEmbedSrc = `https://maps.google.com/maps?q=${locationQuery}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
   const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${locationQuery}`;
+
+  // Waze works best with this specific structure for search queries
   const wazeLink = `https://waze.com/ul?q=${locationQuery}&navigate=yes`;
 
-  useGSAP(
-    () => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        return;
-      }
-
-      gsap.from("[data-contact='reveal']", {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 76%",
-        },
-        autoAlpha: 0,
-        y: 24,
-        duration: 0.6,
-        ease: "power2.out",
-        stagger: 0.12,
-      });
-    },
-    { scope: sectionRef },
-  );
-
   return (
-    <section id="contact" ref={sectionRef} className="section-shell bg-surface-soft/55">
+    <section id="contact" className="section-shell bg-surface-soft/55">
       <div className="pointer-events-none absolute -right-16 top-8 h-56 w-56 rounded-full bg-highlight/35 blur-3xl" />
       <div className="section-wrap">
         <div className="mb-10 text-center">
@@ -100,7 +74,7 @@ export default function Contact() {
         </div>
 
         <div className="grid items-start gap-8 lg:grid-cols-[1fr_1.15fr]">
-          <div data-contact="reveal" className="panel-card space-y-6 p-6 sm:p-8">
+          <div className="panel-card space-y-6 p-6 sm:p-8">
             <a
               href={`tel:${CONTACT_DETAILS.phone}`}
               className="flex items-center gap-3 text-zinc-800 transition-colors hover:text-zinc-950"
@@ -162,7 +136,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div data-contact="reveal" className="panel-card overflow-hidden p-2">
+          <div className="panel-card overflow-hidden p-2">
             <iframe
               title={"\u0645\u0648\u0642\u0639 \u0627\u0644\u0639\u064a\u0627\u062f\u0629 \u0639\u0644\u0649 \u0627\u0644\u062e\u0631\u064a\u0637\u0629"}
               src={googleMapEmbedSrc}

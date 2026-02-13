@@ -1,44 +1,14 @@
-﻿"use client";
-
-import { useRef } from "react";
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import { CONTACT_DETAILS, navLinks } from "@/constants";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Footer() {
   const year = new Date().getFullYear();
-  const footerRef = useRef<HTMLElement | null>(null);
-
-  useGSAP(
-    () => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        return;
-      }
-
-      gsap.from("[data-footer='reveal']", {
-        scrollTrigger: {
-          trigger: footerRef.current,
-          start: "top 88%",
-        },
-        autoAlpha: 0,
-        y: 20,
-        duration: 0.55,
-        ease: "power2.out",
-        stagger: 0.1,
-      });
-    },
-    { scope: footerRef },
-  );
 
   return (
-    <footer ref={footerRef} className="relative border-t border-line/80 bg-surface">
+    <footer className="relative border-t border-line/80 bg-surface">
       <div className="section-wrap grid gap-10 py-14 lg:grid-cols-3">
-        <div data-footer="reveal">
+        <div>
           <div className="flex items-center gap-3">
             <Image
               src="/images/logo.png"
@@ -56,7 +26,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <div data-footer="reveal">
+        <div>
           <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-zinc-700">
             {"\u0631\u0648\u0627\u0628\u0637 \u0633\u0631\u064a\u0639\u0629"}
           </h3>
@@ -71,7 +41,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div data-footer="reveal">
+        <div>
           <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-zinc-700">
             {"\u062a\u0648\u0627\u0635\u0644"}
           </h3>
