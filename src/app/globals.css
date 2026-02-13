@@ -1,10 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #3f3f46;
-  --primary: #e11d48;
-  --primary-hover: #be123c;
+  --background: #f5efe8;
+  --foreground: #312d29;
+  --primary: #b59a87;
+  --primary-hover: #c9b3a4;
+  --accent: #d8c8bb;
+  --surface: #fbf7f2;
+  --surface-soft: #f2e9df;
+  --line: #e7d9cd;
+  --highlight: #f3d8bf;
 }
 
 @theme inline {
@@ -12,6 +17,11 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-soft);
+  --color-line: var(--line);
+  --color-highlight: var(--highlight);
 
   --font-sans: var(--font-cairo);
   --font-mono: var(--font-geist-mono);
@@ -40,10 +50,34 @@ body {
 }
 
 @utility btn-luxury {
-  @apply rounded-full bg-rose-600 px-6 py-2.5 text-sm font-semibold text-white
+  @apply rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-[#2f2923]
   transition-all duration-300 hover:bg-primary-hover hover:scale-105
   focus-visible:outline-none focus-visible:ring-2
   focus-visible:ring-primary/70 focus-visible:ring-offset-2;
+}
+
+@utility section-shell {
+  @apply relative overflow-hidden py-20;
+}
+
+@utility section-wrap {
+  @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+
+@utility section-kicker {
+  @apply inline-flex rounded-full border border-primary/40 bg-white/70 px-4 py-1.5 text-xs font-semibold tracking-[0.14em] text-zinc-700 backdrop-blur-sm;
+}
+
+@utility section-title {
+  @apply mt-4 text-3xl font-bold leading-tight text-zinc-900 sm:text-4xl;
+}
+
+@utility section-copy {
+  @apply mt-3 text-sm leading-7 text-zinc-600 sm:text-base;
+}
+
+@utility panel-card {
+  @apply rounded-3xl border border-line/80 bg-surface/90 shadow-[0_16px_40px_rgba(49,45,41,0.08)] backdrop-blur-sm;
 }
 
 @keyframes testimonials-marquee {

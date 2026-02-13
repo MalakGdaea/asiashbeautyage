@@ -7,15 +7,15 @@ import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonial";
 
 export default function Home() {
-  return (
-    <main>
-      <Hero />
-      <BeforeAfter />
-      <Testimonials />
-      <Services />
-      <About />
-      <Contact />
-      <Footer />
-    </main>
-  );
+    return (
+        <main>
+            <Hero/>
+            <About/>
+            <BeforeAfter/>
+            <Testimonials/>
+            <Services/>
+            <Contact/>
+            <Footer/>
+        </main>
+    );
 }

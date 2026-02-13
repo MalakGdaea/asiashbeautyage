@@ -1,4 +1,12 @@
+﻿"use client";
+
+import { useRef } from "react";
 import { CONTACT_DETAILS } from "@/constants";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function PhoneIcon() {
   return (
@@ -39,26 +47,54 @@ function LocationIcon() {
 }
 
 export default function Contact() {
+  const sectionRef = useRef<HTMLElement | null>(null);
   const locationQuery = encodeURIComponent(CONTACT_DETAILS.address);
   const googleMapEmbedSrc = `https://maps.google.com/maps?q=${locationQuery}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
   const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${locationQuery}`;
   const wazeLink = `https://waze.com/ul?q=${locationQuery}&navigate=yes`;
 
+  useGSAP(
+    () => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        return;
+      }
+
+      gsap.from("[data-contact='reveal']", {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 76%",
+        },
+        autoAlpha: 0,
+        y: 24,
+        duration: 0.6,
+        ease: "power2.out",
+        stagger: 0.12,
+      });
+    },
+    { scope: sectionRef },
+  );
+
   return (
-    <section id="contact" className="bg-rose-50/40 py-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <section id="contact" ref={sectionRef} className="section-shell bg-surface-soft/55">
+      <div className="pointer-events-none absolute -right-16 top-8 h-56 w-56 rounded-full bg-highlight/35 blur-3xl" />
+      <div className="section-wrap">
         <div className="mb-10 text-center">
-          <h2 className="text-3xl font-bold text-zinc-900 sm:text-4xl">تواصلي معنا</h2>
-          <p className="mt-3 text-zinc-600">نحن هنا لمرافقتكِ خطوة بخطوة نحو بشرة مثالية. لا تترددي في سؤالنا.</p>
+          <p className="section-kicker">CONTACT</p>
+          <h2 className="section-title">{"\u062a\u0648\u0627\u0635\u0644\u064a \u0645\u0639\u0646\u0627"}</h2>
+          <p className="section-copy">
+            {
+              "\u0646\u062d\u0646 \u0647\u0646\u0627 \u0644\u0645\u0631\u0627\u0641\u0642\u062a\u0643 \u062e\u0637\u0648\u0629 \u0628\u062e\u0637\u0648\u0629 \u0646\u062d\u0648 \u0628\u0634\u0631\u0629 \u0623\u0646\u0639\u0645 \u0648\u0623\u062c\u0645\u0644."
+            }
+          </p>
         </div>
 
         <div className="grid items-start gap-8 lg:grid-cols-[1fr_1.15fr]">
-          <div className="space-y-6 rounded-3xl border border-rose-100 bg-white p-6 shadow-sm sm:p-8">
+          <div data-contact="reveal" className="panel-card space-y-6 p-6 sm:p-8">
             <a
               href={`tel:${CONTACT_DETAILS.phone}`}
-              className="flex items-center gap-3 text-zinc-800 transition-colors hover:text-rose-600"
+              className="flex items-center gap-3 text-zinc-800 transition-colors hover:text-zinc-950"
             >
-              <span className="rounded-full bg-rose-100 p-2 text-rose-600">
+              <span className="rounded-full bg-surface-soft p-2 text-zinc-700">
                 <PhoneIcon />
               </span>
               <span className="font-semibold">{CONTACT_DETAILS.phone}</span>
@@ -68,16 +104,16 @@ export default function Contact() {
               href={CONTACT_DETAILS.whatsapp}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-3 text-zinc-800 transition-colors hover:text-rose-600"
+              className="flex items-center gap-3 text-zinc-800 transition-colors hover:text-zinc-950"
             >
-              <span className="rounded-full bg-rose-100 p-2 text-rose-600">
+              <span className="rounded-full bg-surface-soft p-2 text-zinc-700">
                 <WhatsAppIcon />
               </span>
-              <span className="font-semibold">تواصل عبر واتساب</span>
+              <span className="font-semibold">{"\u062a\u0648\u0627\u0635\u0644\u064a \u0639\u0628\u0631 \u0648\u0627\u062a\u0633\u0627\u0628"}</span>
             </a>
 
             <p className="flex items-start gap-3 text-zinc-800">
-              <span className="mt-0.5 rounded-full bg-rose-100 p-2 text-rose-600">
+              <span className="mt-0.5 rounded-full bg-surface-soft p-2 text-zinc-700">
                 <LocationIcon />
               </span>
               <span className="font-semibold leading-7">{CONTACT_DETAILS.address}</span>
@@ -90,26 +126,26 @@ export default function Contact() {
                 rel="noreferrer"
                 className="btn-luxury inline-flex items-center justify-center px-5 py-2.5"
               >
-                ابدأ التنقل عبر Waze
+                {"Waze"}
               </a>
               <a
                 href={googleMapsLink}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-full border border-rose-200 px-5 py-2.5 text-sm font-semibold text-zinc-800 transition-colors hover:bg-rose-50"
+                className="inline-flex items-center justify-center rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-zinc-800 transition-colors hover:bg-white/70"
               >
-                فتح في Google Maps
+                {"Google Maps"}
               </a>
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-3xl border border-rose-100 bg-white shadow-sm">
+          <div data-contact="reveal" className="panel-card overflow-hidden p-2">
             <iframe
-              title="موقع العيادة على الخريطة"
+              title={"\u0645\u0648\u0642\u0639 \u0627\u0644\u0639\u064a\u0627\u062f\u0629 \u0639\u0644\u0649 \u0627\u0644\u062e\u0631\u064a\u0637\u0629"}
               src={googleMapEmbedSrc}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="h-[360px] w-full sm:h-[430px]"
+              className="h-[360px] w-full rounded-[1.25rem] sm:h-[430px]"
             />
           </div>
         </div>

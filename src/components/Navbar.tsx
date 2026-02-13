@@ -2,15 +2,15 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { navLinks} from "@/constants";
+import { navLinks } from "@/constants";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-rose-100/60 bg-white/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-line/40 bg-background/75 backdrop-blur">
       <nav className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="#home" className="text-lg font-bold text-rose-600">
+        <Link href="#home" className="text-lg font-bold text-zinc-900">
           Asiash Beauty Age
         </Link>
 
@@ -19,7 +19,7 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="transition-colors hover:text-rose-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500/70 focus-visible:ring-offset-2"
+                className="transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2"
               >
                 {link.label}
               </Link>
@@ -28,23 +28,20 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden md:block">
-          <Link
-            href="#booking"
-            className="btn-luxury"
-          >
-            احجزي موعدك
+          <Link href="#contact" className="btn-luxury">
+            {"\u0627\u062d\u062c\u0632\u064a \u0645\u0648\u0639\u062f\u0643"}
           </Link>
         </div>
 
         <button
           type="button"
-          className="inline-flex flex-center rounded-md p-2 text-zinc-700 transition-colors hover:bg-rose-50 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500/70 md:hidden"
+          className="inline-flex flex-center rounded-md p-2 text-zinc-700 transition-colors hover:bg-surface-soft hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 md:hidden"
           onClick={() => setIsOpen((prev) => !prev)}
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
-          aria-label="فتح أو إغلاق القائمة"
+          aria-label={"\u0641\u062a\u062d \u0623\u0648 \u0625\u063a\u0644\u0627\u0642 \u0627\u0644\u0642\u0627\u0626\u0645\u0629"}
         >
-          <span className="sr-only">القائمة</span>
+          <span className="sr-only">{"\u0627\u0644\u0642\u0627\u0626\u0645\u0629"}</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -63,14 +60,14 @@ export default function Navbar() {
       </nav>
 
       {isOpen && (
-        <div id="mobile-menu" className="border-t border-rose-100 bg-white px-4 py-4 md:hidden">
+        <div id="mobile-menu" className="border-t border-line/70 bg-surface px-4 py-4 md:hidden">
           <ul className="flex flex-col gap-4 text-sm font-semibold text-zinc-700">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="block rounded-md px-2 py-1 transition-colors hover:bg-rose-50 hover:text-rose-600"
+                  className="block rounded-md px-2 py-1 transition-colors hover:bg-surface-soft hover:text-primary-hover"
                 >
                   {link.label}
                 </Link>
@@ -79,11 +76,11 @@ export default function Navbar() {
           </ul>
 
           <Link
-            href="#booking"
+            href="#contact"
             onClick={() => setIsOpen(false)}
             className="btn-luxury mt-4 inline-flex w-full flex-center px-4 py-2"
           >
-            احجزي موعدك
+            {"\u0627\u062d\u062c\u0632\u064a \u0645\u0648\u0639\u062f\u0643"}
           </Link>
         </div>
       )}
