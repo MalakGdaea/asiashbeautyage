@@ -28,11 +28,18 @@ export const metadata: Metadata = {
     siteName: "Asiash Beauty Age",
     locale: "ar_IL",
     type: "website",
-    images: ["/og-image.jpg"],
+    images: [
+      {
+        url: `${siteUrl}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Asiash Beauty Age Clinic",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og-image.jpg"],
+    images: [`${siteUrl}/og-image.jpg`],
     title: "عناية بالبشرة في رهط | Asiash Beauty Age",
     description: "عيادة تجميل متقدمة في رهط تقدم علاجات البشرة وتنظيف عميق بنتائج واضحة.",
   },
