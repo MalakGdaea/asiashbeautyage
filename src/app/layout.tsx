@@ -17,13 +17,13 @@ export const metadata: Metadata = {
     default: "عناية بالبشرة في رهط | Asiash Beauty Age",
     template: "%s | Asiash Beauty Age",
   },
-  description: "عيادة تجميل متقدمة في رهط تقدم علاجات البشرة وتنظيف عميق بنتائج واضحة.",
+  description: "عناية متقدمة بالبشرة والجمال",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "عناية بالبشرة في رهط | Asiash Beauty Age",
-    description: "عيادة تجميل متقدمة في رهط تقدم علاجات البشرة وتنظيف عميق بنتائج واضحة.",
+    description: "عناية متقدمة بالبشرة والجمال",
     url: "/",
     siteName: "Asiash Beauty Age",
     locale: "ar_IL",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: [`${siteUrl}/og-image.jpg`],
     title: "عناية بالبشرة في رهط | Asiash Beauty Age",
-    description: "عيادة تجميل متقدمة في رهط تقدم علاجات البشرة وتنظيف عميق بنتائج واضحة.",
+    description: "عناية متقدمة بالبشرة والجمال في رهط",
   },
   robots: {
     index: true,

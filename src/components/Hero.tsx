@@ -77,15 +77,15 @@ export default function Hero() {
     >
       <div
         data-hero="orb"
-        className="pointer-events-none absolute -left-12 top-10 h-40 w-40 rounded-full bg-rose-200/60 blur-2xl"
+        className="pointer-events-none absolute -left-12 top-10 h-40 w-40 rounded-full bg-rose-200/45 blur-xl sm:bg-rose-200/60 sm:blur-2xl"
       />
       <div
         data-hero="orb"
-        className="pointer-events-none absolute -right-16 top-36 h-56 w-56 rounded-full bg-primary/40 blur-3xl"
+        className="pointer-events-none absolute -right-16 top-36 h-56 w-56 rounded-full bg-primary/30 blur-xl sm:bg-primary/40 sm:blur-3xl"
       />
       <div
         data-hero="orb"
-        className="pointer-events-none absolute bottom-8 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-amber-100/70 blur-3xl"
+        className="pointer-events-none absolute bottom-8 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-amber-100/50 blur-xl sm:bg-amber-100/70 sm:blur-3xl"
       />
 
       <div className="mx-auto grid min-h-[calc(100svh-6rem)] max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-[1.06fr_0.94fr] lg:gap-14">
@@ -147,7 +147,7 @@ export default function Hero() {
         </div>
 
         <div data-hero="visual" className="relative mx-auto w-full max-w-[420px]">
-          <div className="absolute -right-4 -top-4 h-full w-full rounded-[2.2rem] border border-white/60 bg-white/35 backdrop-blur-sm" />
+          <div className="absolute -right-4 -top-4 h-full w-full rounded-[2.2rem] border border-white/60 bg-white/45 sm:bg-white/35 sm:backdrop-blur-sm" />
           <Image
             src="/images/hero.jpg"
             alt="woman with great skin"
@@ -159,7 +159,7 @@ export default function Hero() {
 
           <div
             data-hero="badge"
-            className="absolute -left-4 top-8 rounded-2xl border border-white/70 bg-white/90 px-4 py-2 text-xs font-bold text-zinc-800 shadow-lg backdrop-blur-sm sm:text-sm"
+            className="absolute -left-4 top-8 rounded-2xl border border-white/70 bg-white/90 px-4 py-2 text-xs font-bold text-zinc-800 shadow-lg sm:backdrop-blur-sm sm:text-sm"
           >
             {"\u0639\u0646\u0627\u064a\u0629 \u0645\u062a\u0642\u062f\u0645\u0629"}
           </div>
